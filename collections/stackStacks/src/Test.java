@@ -17,7 +17,7 @@
         else if(closing.indexOf(c) != -1){
           if(buffer.isEmpty())
               return false;
-          if(closing.indexOf(c) != opening.indexOf(buffer.pop()))
+          else if(closing.indexOf(c) != opening.indexOf(buffer.pop()))
               return false;
         }
      }
@@ -37,7 +37,7 @@
        }   //if there is a >, then
        String tag = html.substring(j+1, k);  //get the string between j+1(after j = <) and k
 
-       if(!tag.startsWith("/"))  //if the string starts with /
+       if(!tag.startsWith("/"))  //if the string dooes not starts with /
           buffer.push(tag);     //push the tag
        else{
           if(buffer.isEmpty())
@@ -56,6 +56,8 @@
      System.out.println("True/False: " + isHTMLMatched("<body></body"));
      System.out.println("True/False: " + isHTMLMatched("<body></body>"));
      System.out.println("True/False: " + isHTMLMatched("<></>"));
+     System.out.println("true/false for isMatched : " + isMatched("{ nana aba[coming(to town)]}"));
+     System.out.println("true/false for isMatchedc: " + isMatched("{([crazy girl)}"));
    }
 
  }
