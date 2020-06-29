@@ -29,20 +29,20 @@
 
      Stack<String> buffer = new LinkedStack<>();
 
-     int j = html.indexOf("<");
+     int j = html.indexOf("<");   //the index of <
      while(j != -1){
-       int k = html.indexOf(">", j+1);
-       if(k == -1){
+       int k = html.indexOf(">", j+1);  //if j is not equal to -1, then find > after the index of j+1
+       if(k == -1){  //if there is no >, return false;
          return false;
-       }
-       String tag = html.substring(j+1, k);
+       }   //if there is a >, then
+       String tag = html.substring(j+1, k);  //get the string between j+1(after j = <) and k
 
-       if(!tag.startsWith("/"))
-          buffer.push(tag);
+       if(!tag.startsWith("/"))  //if the string starts with /
+          buffer.push(tag);     //push the tag
        else{
           if(buffer.isEmpty())
             return false;
-          if(!tag.substring(1).equals(buffer.pop()))
+          if(!tag.substring(1).equals(buffer.pop())) //not equals
             return false;
        }
        j = html.indexOf('<', k+1);
@@ -54,6 +54,7 @@
    public static void main(String [] args){
 
      System.out.println("True/False: " + isHTMLMatched("<body></body"));
+     System.out.println("True/False: " + isHTMLMatched("<body></body>"));
      System.out.println("True/False: " + isHTMLMatched("<></>"));
    }
 
