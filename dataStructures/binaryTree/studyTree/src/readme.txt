@@ -100,4 +100,54 @@ Main Application of tress include
 
 
 
-ss
+Binary Tree
+
+In a binary tree, a node can have maximum two children. Consider the left skewed binary tree shown in Figure 1
+
+- Searching: For searching element 2, we have to traverse all elements.(assuming we do breadth first traversal).
+Therefor, searching in binary tree has worst case complexity of O(n)
+
+- Insertion: For inserting element as left child of 2, we have to traverse all elements. Therefore, insertion in binary
+has worst case complexity of O(n)
+
+- Deletion: For deletion of element 2, we have traverse all elements to find 2(assuming we do breadth first traversal).
+Therefore, deletion in binary tree has worst case complexity of O(n)
+
+
+
+
+
+
+
+Binary Search Tree
+
+
+
+BST is a special type of binary tree in which left child of a node has value less than the parent and right child has value
+greater than parent. Consider the left skewed BST shown in Figure 2
+
+
+
+Height Balanced Tree
+
+AVL tree is binary search tree with additional property that difference between height of left sub-tree and right sub-tree
+of any node can't be more than 1. For example, BST shown in Figure 2 is not AVL as difference between left sub-tree and right
+sub-tree of node of 3 is 2
+
+
+
+
+# Insertion Elements
+
+The first operation we're going to cover is the insertion of new nodes.
+
+First, we have to find the place where we want to add a new node in order to keep the tree-sorted.
+We'll follow these rules starting from the root node.
+
+
+- if the new node's value is lower than the current node's, we go to the left child
+- if the new node's value is greater than the current node's we go to the right child
+- when the current node is null, we've reached a leaf node and we can insert the new node in that position.
+
+
+First we'll create recursive method to do insertion.
