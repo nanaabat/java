@@ -34,3 +34,23 @@ public class Car implements Comparable<Car>{
   public int hashCode(){
     return this.registrationNumber.hashCode();
   }
+
+
+  public String String(){
+    return this.registrationNumber;
+  }
+
+
+  /**
+   * Natural ordering for car instance
+   */
+
+
+   public int compareTo(Car o){
+     if(this.getPrice() > o.getPrice()){
+       return 1;
+     }
+     else if(this.getPrice() < o.getPrice()){
+       return -1;
+     }
+   }
